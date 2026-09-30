@@ -56,3 +56,74 @@ def add_time_gaps(track, gap_minutes=10):
     track["large_gap"] = track["time_gap"] > gap_minutes
 
     return track
+import math
+
+def haversine_distance_nm(lat1, lon1, lat2, lon2):
+    """
+    Calculate distance between two geographic points
+    in nautical miles using the Haversine formula.
+    """
+
+    earth_radius_nm = 3440.065
+
+    lat1 = math.radians(lat1)
+    lon1 = math.radians(lon1)
+    lat2 = math.radians(lat2)
+    lon2 = math.radians(lon2)
+
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+
+    a = (
+        math.sin(dlat / 2) ** 2
+        + math.cos(lat1)
+        * math.cos(lat2)
+        * math.sin(dlon / 2) ** 2
+    )
+
+    c = 2 * math.asin(math.sqrt(a))
+
+    return earth_radius_nm * c
+def add_distance_travelled(track):
+    """
+    Calculate distance between consecutive AIS positions
+    in nautical miles.
+    """
+
+    track = prepare_track_for_distance(track)
+
+    distances = [0.0]
+
+    for i in range(1, len(track)):
+        distance = haversine_distance_nm(
+            track.loc[i - 1, "latitude"],
+            track.loc[i - 1, "longitude"],
+            track.loc[i, "latitude"],
+            track.loc[i, "longitude"],
+        )
+
+        distances.append(distance)
+
+    track["distance_nm"] = distances
+
+    return track
+def prepare_track_for_distance(track):
+    """
+    Create one position per timestamp for distance calculations.
+
+    Simultaneous observations from multiple data sources are
+    represented by their mean latitude and longitude.
+    """
+
+    track = (
+        track
+        .groupby("date_time_utc", as_index=False)
+        .agg(
+            latitude=("latitude", "mean"),
+            longitude=("longitude", "mean"),
+        )
+        .sort_values("date_time_utc")
+        .reset_index(drop=True)
+    )
+
+    return track
