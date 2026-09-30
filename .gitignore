@@ -1,0 +1,26 @@
+# Raw/private AIS data
+data/raw/
+data/private/
+
+# Parquet files are private by default
+*.parquet
+
+# Allow approved public sample files
+!data/sample/
+!data/sample/*.parquet
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+
+# Environment variables
+.env
