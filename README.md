@@ -123,7 +123,7 @@ The fleet summary also ranks anonymized vessels by total distance travelled:
 
 ## Publications
 
-This project is related to the following publications on AIS-based maritime data analysis:
+Relevant publications on AIS-based maritime data analysis:
 
 1. **Exploring Recent Maritime Research on AIS-Based Ship Behavior Analysis and Modeling**  
    Duka, A., Zhang, H., Vidan, P., & Li, G. (2026).  
