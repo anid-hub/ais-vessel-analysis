@@ -120,3 +120,22 @@ The fleet summary also ranks anonymized vessels by total distance travelled:
 | vessel_034 | 11021 | 4.569322 | 106.799565 | 4.450548 |
 | vessel_026 | 15251 | 8.914215 | 96.794397 | 4.033333 |
 | vessel_035 | 4218 | 3.319132 | 87.399820 | 3.643304 |
+
+## Publications
+
+This project is related to the following publications on AIS-based maritime data analysis:
+
+1. **Exploring Recent Maritime Research on AIS-Based Ship Behavior Analysis and Modeling**  
+   Duka, A., Zhang, H., Vidan, P., & Li, G. (2026).  
+   *Journal of Marine Science and Engineering*, 14(8), 712.  
+   [DOI](https://doi.org/10.3390/jmse14080712) | [Publisher](https://www.mdpi.com/2077-1312/14/8/712)
+
+2. **Fishing Ground Identification and Activity Analysis Based on AIS Data**  
+   Duka, A., Tian, W., Zhang, H., Vidan, P., & Li, G. (2026).  
+   *Future Transportation*, 6(1), 34.  
+   [DOI](https://doi.org/10.3390/futuretransp6010034) | [Publisher](https://www.mdpi.com/2673-7590/6/1/34)
+
+3. **AIS-Based Analysis of Passenger Vessel Traffic and Emissions in Coastal Norway**  
+   Duka, A., Zhang, H., Vidan, P., & Li, G. (2026).  
+   *Logistics*, 10(9), 209.  
+   [DOI](https://doi.org/10.3390/logistics10090209) | [Publisher](https://www.mdpi.com/2305-6290/10/9/209)
